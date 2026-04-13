@@ -252,6 +252,12 @@
                         <a id="viewProfileBtn" href="#" class="header-btn" title="View Profile">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
                         </a>
+                        <!-- Schedule Meeting -->
+                        <a id="scheduleMeetBtn" href="#" target="_blank" class="header-btn" title="Schedule a video meeting" style="text-decoration:none;">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+                            </svg>
+                        </a>
                         <button class="header-btn" title="Swap Request" onclick="alert('Skill swap request sent! 🎉')">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3M3 16v3a2 2 0 0 0 2 2h3m13 0h3a2 2 0 0 0 2-2v-3"/></svg>
                         </button>
@@ -564,7 +570,8 @@ async function openChat(userId) {
     const t = (user.skills_teaching || []).slice(0,1).join('');
     const l = (user.skills_learning || []).slice(0,1).join('');
     document.getElementById('headerSkill').textContent = t && l ? `${t} ↔ ${l}` : (t || l || '');
-    document.getElementById('viewProfileBtn').href = `profile.html?id=${userId}`;
+    document.getElementById('viewProfileBtn').href   = `profile.html?id=${userId}`;
+    document.getElementById('scheduleMeetBtn').href  = `schedule.html?peer=${userId}`;
 
     document.getElementById('chatPlaceholder').style.display = 'none';
     const ac = document.getElementById('activeChat');
